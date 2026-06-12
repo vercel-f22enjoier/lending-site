@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Influencer Landing</h1>
+
+<h2>Latest Posts</h2>
+
+{% for post in posts %}
+    <div>
+        <h3>{{ post.title }}</h3>
+        <p>{{ post.content }}</p>
+    </div>
+{% endfor %}
+
+{% endblock %}

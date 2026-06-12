@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Admin CRUD Panel</h1>
+
+<h2>Create Post</h2>
+
+<form method="POST" action="/admin/create">
+    <input type="text" name="title" placeholder="Title" required>
+    <br>
+    <textarea name="content" placeholder="Content" required></textarea>
+    <br>
+    <button type="submit">Create</button>
+</form>
+
+<hr>
+
+<h2>Posts</h2>
+
+{% for post in posts %}
+<div style="border:1px solid #ccc; padding:10px; margin:10px;">
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.content }}</p>
+
+    <a href="/admin/edit/{{ post.id }}">Edit</a>
+    |
+    <a href="/admin/delete/{{ post.id }}">Delete</a>
+</div>
+{% endfor %}
+
+{% endblock %}
